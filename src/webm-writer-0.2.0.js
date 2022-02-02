@@ -10,7 +10,8 @@
 
 (function(){
 
-    var isNodeEnviroment = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
+    // var isNodeEnviroment = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
+    var isNodeEnviroment = (typeof process !== 'undefined') && (process.release.name === 'node')
 
     /**
      * Create an ArrayBuffer of the given length and present it as a writable stream with methods

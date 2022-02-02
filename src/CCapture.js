@@ -2,7 +2,8 @@
 
 "use strict";
 
-var isNodeEnviroment = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
+// var isNodeEnviroment = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
+var isNodeEnviroment = (typeof process !== 'undefined') && (process.release.name === 'node')
 
 var Tar = isNodeEnviroment ? require('./tar') : window.Tar;
 var download = isNodeEnviroment ? require('./download') : window.download;
