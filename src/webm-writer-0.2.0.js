@@ -11,7 +11,7 @@
 (function(){
 
     // var isNodeEnviroment = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
-    var isNodeEnviroment = (typeof process !== 'undefined') && (process.release.name === 'node')
+    var isNodeEnviroment = false;
 
     /**
      * Create an ArrayBuffer of the given length and present it as a writable stream with methods
@@ -425,7 +425,7 @@
 				return writePromise;
 			};
 		};
-	}(isNodeEnviroment ? require('fs') : null);
+	}(null);
 	
 	window.BlobBuffer = BlobBuffer;
 
@@ -1083,9 +1083,5 @@
         };
     };
 
-    if (isNodeEnviroment) {
-	    module.exports = WebMWriter(ArrayBufferDataStream, BlobBuffer);
-    } else {
-	    window.WebMWriter = WebMWriter(ArrayBufferDataStream, BlobBuffer);
-    }
+    window.WebMWriter = WebMWriter(ArrayBufferDataStream, BlobBuffer);
 })();

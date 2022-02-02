@@ -3,12 +3,12 @@
 "use strict";
 
 // var isNodeEnviroment = typeof module !== 'undefined' && typeof module.exports !== 'undefined';
-var isNodeEnviroment = (typeof process !== 'undefined') && (process.release.name === 'node')
+var isNodeEnviroment = false
 
-var Tar = isNodeEnviroment ? require('./tar') : window.Tar;
-var download = isNodeEnviroment ? require('./download') : window.download;
-var GIF = isNodeEnviroment ? require('./gif').GIF : window.GIF;
-var WebMWriter = isNodeEnviroment ? require('./webm-writer-0.2.0') : window.WebMWriter;
+var Tar = window.Tar;
+var download = window.download;
+var GIF = window.GIF;
+var WebMWriter = window.WebMWriter;
 
 var objectTypes = {
 'function': true,
